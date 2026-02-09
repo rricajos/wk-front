@@ -1,3 +1,4 @@
+# .github/workflows/deploy.yml
 name: Build & Deploy Client
 
 on:
@@ -15,7 +16,6 @@ jobs:
     permissions:
       contents: read
       packages: write
-
     steps:
       - uses: actions/checkout@v4
 
