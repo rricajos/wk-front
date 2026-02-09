@@ -3,7 +3,9 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 COPY . .
-RUN cp .env.example .env 2>/dev/null || true
+RUN echo 'VITE_API_URL=https://wk.polobomba.com/api' > .env && \
+    echo 'VITE_WS_URL=wss://wk.polobomba.com/ws' >> .env && \
+    echo 'VITE_DEV_MODE=true' >> .env
 RUN npm run build
 
 FROM nginx:alpine
